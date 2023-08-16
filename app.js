@@ -1,9 +1,9 @@
 import express from 'express'
 import nunjucks from 'nunjucks'
-import path from 'path';
-import url from 'url';
+// import path from 'path';
+// import url from 'url';
 
-const rootDir = url.fileURLToPath(new URL('.', import.meta.url));
+// const rootDir = url.fileURLToPath(new URL('.', import.meta.url));
 
 const app = express()
 
@@ -17,7 +17,9 @@ app.get('/', (req, res) => {
     // res.send('<h1>Hello there</h1>')
 
     // 2. Then an html file. To do this we have to set up some logic to specify where exactly the file is, since it can't find it with just './index.html'. See the path, url and rootDir lines near the top of the file. 
+    // Or just use nunjucks.configure
     // res.sendFile(path.join(rootDir, './index.html'))
+    res.render('index.html')
 
     // 3. What if we have dynamic data?
     // res.send(`<h1>Hello there, ${req.query.name}</h1>`)
@@ -26,7 +28,7 @@ app.get('/', (req, res) => {
     // res.send(`<h1>Hello there, ${req.query.name} the ${req.query.title}</h1>`)
 
     // 5. queries and params. DON'T USE PARAMS ON THE ROOT ENDPOINT
-    res.send(`<h1>Hello there, ${req.params.name} the ${req.query.title}</h1>`)
+    // res.send(`<h1>Hello there, ${req.params.name} the ${req.query.title}</h1>`)
 
 
 })
