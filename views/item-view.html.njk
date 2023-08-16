@@ -1,0 +1,21 @@
+{% extends 'base.html.njk' %}
+
+{% block title %}Items page{% endblock title %}
+
+{% block body %}
+
+
+{% if items %}
+<h1>Here are the items you requested:</h1>
+<ul>
+    {% for item in items%}
+        <li> {{item.name}} is {{item.coolLevel}} units cool</li>
+    {% endfor%}
+</ul>
+{% elif noitems %}
+<p>unfortunately there are no items to display</p>
+{% else %}
+<p>Wow you really couldn't be bothered to pas in any data?</p>
+{% endif%}
+
+{% endblock %}
